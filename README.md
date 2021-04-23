@@ -7,6 +7,8 @@ npm start
 
 ## Code structure
 
+[Structure] (/structure.png)
+
 Index.js: Main program
 
 - Initialize Express server as the web server.
@@ -58,11 +60,11 @@ Utilizing Jest version 23.6.0
 
 - Test case implementations: /src/tests/people.test.js
 - Testing cases
-  a. Insert: REST post call
-  b. Search: REST get call
-  c. Select: RESET get call
-  d. Update: REST put call
-  e. Delete: REST delete call
+  - Insert: REST post call
+  - Search: REST get call
+  - Select: RESET get call
+  - Update: REST put call
+  - Delete: REST delete call
 - Mocking implementations: /src/tests/fixture/db.js, /src/tests/fixture/dbInstance.js
 - The way of mocking: making testing data with 5 people, using separate database file (/db.test.json) for testing environment.
 

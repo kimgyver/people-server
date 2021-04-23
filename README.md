@@ -7,7 +7,7 @@ npm start
 
 ## Code structure
 
-[Structure] (/structure.png)
+![Structure] (/structure.png)
 
 Index.js: Main program
 

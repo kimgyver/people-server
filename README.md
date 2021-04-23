@@ -73,3 +73,5 @@ Utilizing Jest version 23.6.0
 - Infinite loop occurs sometimes, not always.
 - According to my investigation until now, it is related to Jest version, also related to the mechanism of NeDB which is a file-based Database.
 - Still cannot figure out the reason why it sometime does loop. But test result could be checked out.
+- In case it is OK
+  ![Test result](https://raw.githubusercontent.com/kimgyver/people-server/master/test-result.png)

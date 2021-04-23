@@ -1,4 +1,4 @@
-# Node JS REST server – People Management Server
+# People Management Server - Node JS REST server
 
 ```bash
 npm install

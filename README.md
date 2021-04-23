@@ -1,48 +1,73 @@
-# Ambit - Coding Challenge
+# Node JS REST server – People Management Server
 
-Thanks for applying at Ambit. This coding challenge is an opportunity for you to show us your skills and what you're capable of.
-
-The exercise is to:
-
-- Clean up this code and put it in a sensible structure
-- Modernise the solution (if you think it needs to be modernised) and update the libraries that are used (if you think they need to be updated)
-- Reduce code duplication (there is a lot of it)
-- The UI is pretty simple - we're sure you can improve it :)
-
-The application runs correctly, but there's a lot of duplication, the rendering is all server-side, and its filtering use case is limited. To run the existing solution:
-
-``` bash
+```bash
 npm install
 npm start
 ```
 
-Browse to [http://localhost:3000](http://localhost:3000)
+## Code structure
 
-## Important - the requirements
+Index.js: Main program
 
-- We must be able to quickly and easily start your solution from a command line and your solution must be able to run on a Windows, Mac and Linux machine
-- You are welcome to introduce any libraries you feel are useful, but these must run on Windows, Mac, and Linux
-- Generalise the filtering system (e.g. so you can select all people who are both male and 20 years old)
-- The UI must run as a Single Page App
-- Rewrite this readme file to include instructions on how to run your solution and any comments on your design. You can also include any suggestions for how you might improve or expand on your program - and even how you might host it.
+- Initialize Express server as the web server.
+- Set router modules for the express server.
+- Open express server port 2000 for the REST service.
 
-## Guidance and Advice
+Router.js: Implementation of routing methods dealing with REST APIs for
 
-There is no "right answer", but some good things to do might be:
+- creating user
+- searching for users
+- getting only one user information by key
+- updating user
+- deleting user
 
-- Introduce some kind of state management (e.g. redux)
-- Introduce a task runner (such as Webpack) with a transpiler to take advantage of even more modern ES features
-- Separate concerns: untangle business logic, web serving, and data access
-- Introduce a linter
-- Improve the configurability by replacing hardcoding of values with appropriate mechanisms for specifying them
-- Improve error handling
-- Add useful comments
-- Add logging
-- Add some tests and/or explain how you would test your solution (you can put this in your readme file).
-- The structure of the application is up to you. For example, you can put all front-end and API code into the same application or you can separate the API and front-end as different applications in the same repo - we’ll let you decide on the best approach
+Db.js: Implementation of database CRUD methods including the following.
 
-Develop your solution in a way that represents a “real world” solution. Think about how you might test your solution, carry out logging, host your application, document your application, scale your application, improve your data access layer, improve the design of the UI etc. - you don’t necessarily have to implement all of this stuff, but you could talk about it in your readme file.
+- insert new user.
+- Search users with combining gender condition and age condition.
+- Get one user.
+- Update user information.
+- Delete user.
 
-## Most importantly: show us what you can do&#33;
+## Utilities / Libraries
 
-Once you’ve finished - don’t forget to commit your code and send us an email letting us know that you’ve finished the coding challenge along with the repository URL. If you have any questions - let us know.
+Logging
+
+- Utilizing the Winston Node JS library
+- Implemented in src/logger.js code.
+- Defined logging level: Information, Debugging, Error
+- logs are displayed at console and saved in log files located in /logs directory.
+  Cors
+- Enable the internet browser to permit access to Node JS/Express web server.
+- CORS library does this by required settings in terms of Cross Origin Resource Sharing
+
+Env-cmd
+
+- For the purpose of Environment variable management
+- Differentiate Production / Testing environment
+
+## Unit Testing
+
+```bash
+npm run test
+```
+
+Utilizing Jest version 23.6.0
+
+### Code structure
+
+- Test case implementations: /src/tests/people.test.js
+- Testing cases
+  a. Insert: REST post call
+  b. Search: REST get call
+  c. Select: RESET get call
+  d. Update: REST put call
+  e. Delete: REST delete call
+- Mocking implementations: /src/tests/fixture/db.js, /src/tests/fixture/dbInstance.js
+- The way of mocking: making testing data with 5 people, using separate database file (/db.test.json) for testing environment.
+
+### Current Bug/Limitation
+
+- Infinite loop occurs sometimes, not always.
+- According to my investigation until now, it is related to Jest version, also related to the mechanism of NeDB which is a file-based Database.
+- Still cannot figure out the reason why it sometime does loop. But test result could be checked out.

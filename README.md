@@ -7,7 +7,7 @@ npm start
 
 ## Code structure
 
-![Structure] (/structure.png)
+![Structure] (https://raw.githubusercontent.com/kimgyver/people-server/master/structure.png)
 
 Index.js: Main program
 

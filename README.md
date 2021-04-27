@@ -39,7 +39,8 @@ Logging
 - Implemented in src/logger.js code.
 - Defined logging level: Information, Debugging, Error
 - logs are displayed at console and saved in log files located in /logs directory.
-  Cors
+
+Cors
 - Enable the internet browser to permit access to Node JS/Express web server.
 - CORS library does this by required settings in terms of Cross Origin Resource Sharing
 
